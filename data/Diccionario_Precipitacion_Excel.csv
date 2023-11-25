@@ -1,0 +1,15 @@
+NOMBRE,TIPO ,DESCRIPCIÓN
+ENTIDAD,Texto,Nombre de la entidad
+ENE,Entero,Valor acumulado de precipitación para el mes de Enero
+FEB,Entero,Valor acumulado de precipitación para el mes de Febrero
+MAR,Entero,Valor acumulado de precipitación para el mes de Marzo
+ABR,Entero,Valor acumulado de precipitación para el mes de Abril
+MAY,Entero,Valor acumulado de precipitación para el mes de Mayo
+JUN,Entero,Valor acumulado de precipitación para el mes de Junio
+JUL,Entero,Valor acumulado de precipitación para el mes de Julio
+AGO,Entero,Valor acumulado de precipitación para el mes de Agosto
+SEP,Entero,Valor acumulado de precipitación para el mes de Septiembre
+OCT,Entero,Valor acumulado de precipitación para el mes de Octubre
+NOV,Entero,Valor acumulado de precipitación para el mes de Noviembre
+DIC,Entero,Valor acumulado de precipitación para el mes de Diciembre
+ANUAL,Entero,Valor promedio de precipitación anual

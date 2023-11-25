@@ -1,0 +1,17 @@
+line_labels = df.iloc[:, 0]
+
+%matplotlib notebook
+plt.figure(figsize=(48, 6))  # Adjust the width and height as needed
+# Create a line plot for each line label
+for i in range(32):
+    plt.plot(date_range, df.iloc[i, 1:].values.tolist(), label=line_labels[i])
+
+# Customize the plot
+plt.xlabel('X-axis Label')
+plt.ylabel('Y-axis Label')
+plt.title('Line Plot with Multiple Lines')
+plt.legend(prop={'size': 8})
+plt.grid(True)
+
+# Show the plot
+plt.show()
