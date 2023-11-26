@@ -27,7 +27,6 @@ chart = alt.Chart(aux).mark_rect().encode(
     alt.Column("ENTIDAD"),
     tooltip=["AÑO", "MES", "PRECIPITACION"]
 ).properties(
-    title="Precipitación por mes y año en Nuevo León vs Nacional",
     width=200,
     height=500
 )
@@ -35,3 +34,48 @@ chart = alt.Chart(aux).mark_rect().encode(
 #chart.save('templates/chart.html')
 
 chart.save('templates/chart.html')
+
+################# GEOPANDAS
+
+
+import geopandas as gpd
+import matplotlib.pyplot as plt
+import pandas as pd
+from matplotlib_scalebar.scalebar import ScaleBar
+
+gdf_mexico = gpd.read_file('../data/mapa_mexico/').set_index('CLAVE').to_crs(epsg=4485)
+
+df = pd.read_csv("../results/Clean_Data/precipitacion_anual.csv", header=0)
+new_df = df.iloc[:-1, 1:]
+edos = gdf_mexico.dissolve(by='CVE_EDO')
+
+edos = edos.reset_index(drop=True)
+new_df = new_df.reset_index(drop=True)
+
+# Convert GeoDataFrames to DataFrames
+df1 = edos.drop(columns=['geometry','NOM_MUN','CVE_MUNI'])
+# Concatenate the DataFrames along the columns
+result_df = pd.concat([df1, new_df], axis=1)
+
+# Convert the concatenated DataFrame back to a GeoDataFrame
+result_gdf = gpd.GeoDataFrame(result_df, geometry=edos.geometry)
+
+def plot_precipitation_for_year(year, gdf):
+    # Crear un objeto de figura y ejes
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    # Plotear el GeoDataFrame con la columna del año dado
+    gdf.plot(column=str(year), legend=True, ax=ax)
+
+    # Eliminar los valores en los ejes
+    ax.set_axis_off()
+
+    # Establecer el título del gráfico
+    plt.title(f'Precipitación Acumulada [mm] promedio para el año {year}')
+    plt.savefig("static/" + str(year) + "precipitacion.png")
+    plt.close()
+
+
+#for i in range(1985,2023):
+#    plot_precipitation_for_year(i,result_gdf)
+    

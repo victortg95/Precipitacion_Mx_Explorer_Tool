@@ -69,26 +69,46 @@
       text-decoration: underline;
     }
 
-
   </style>
 </head>
 <body>
 
     <div class="container-flex text-center">
         <h1>Herramienta de exploración de datos de precipitaciones</h1>
-        <h3>México</h2>
+        <h4>México</h4>
         <!-- <img src="{{ url_for('static', filename = '../../results/Graficos/histograma.png') }}"> -->
     </div>
 
     <div class="container">
-        <p>Geopandas</p>
+      <h4>Mapa de precipitaciones por estado (1985 - 2022) </h4>
+      <p>Selecciona un año para consulta: </p>
+      <div class="container text-center">
+
+      <select id="yearSelector" onchange="changeImage()">
+        
+          {% for year in range(1985, 2023) %}
+              <option value="{{ year }}">{{ year }}</option>
+          {% endfor %}
+      </select>
+  
+      <img id="selectedImage" src="" alt="Selected Image">
+      </div>
+      <p>Visualizacion: Geopandas</p>
     </div>
 
-    
+  <div class="container mt-3">
+    <h4>Precipitación por mes y año en Nuevo León y Jalisco vs Nacional</h4>
+    <p>La media de precipitaciones en el estado de Jalisco es mayor que el promedio Nacional, 
+      mientras que la media de Nuevo León se encuentra por debajo. </p>
+      <div class="container text-center" id="chartContainer">
+          {% include "chart.html" %}
+      </div>
+    <p>Visualización: Altair</p>
+  </div>
    
   <div class="container"> 
-    <h2 class="text-center">Resuelve tus dudas con ChatGPT</h2>
-    <p class="text-center">Prueba preguntar: ¿Qué pudo haber causado las altas precipitaciones en Jalisco en el año 1989?</p>
+    <h2 class="">Resuelve tus dudas con ChatGPT</h2>
+    <p class="">Prueba preguntar: ¿Qué pudo haber causado las altas precipitaciones en Jalisco en el año 1989?</p>
     <div class="row mt-4">
       <!-- First Column -->
       <div class="col-md-6">
@@ -115,23 +135,27 @@
   </div>
 
 
-  <div class="container text-center mt-3">
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#chartContainer" aria-expanded="false" aria-controls="chartContainer">
-        Mostrar visualización: Promedio de precipitación por mes y año
-        </button>
-        <div class="container collapse" id="chartContainer">
-            {% include "chart.html" %}
-        </div>
-    </div>
+
 
   <!-- Bootstrap JS and Popper.js CDN -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function changeImage() {
+        // Get the selected year from the dropdown
+        var selectedYear = document.getElementById("yearSelector").value;
 
+        // Create the image file name using the selected year
+        var imageName = "static/" + selectedYear + "precipitacion.png";
+
+        // Set the source of the image element to the new image file
+        document.getElementById("selectedImage").src = imageName;
+    }
+  </script>
 
   <div class="footer">
-    <p>&copy; 2023. Proyecto para la clase "Desarrollo de Proyecto I" de la Maestría en Ciencia de los Datos | <a href="#">Roberto Ramirez</a> | <a href="#">Victor Tellez</a></p>
+    <p>&copy; 2023. Proyecto para la clase "Desarrollo de Proyecto I" de la Maestría en Ciencia de los Datos | <a href="https://github.com/robrmz">Roberto Ramirez</a> | <a href="https://github.com/victortg95">Victor Tellez</a></p>
   </div>
 
 

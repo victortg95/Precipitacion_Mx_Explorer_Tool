@@ -1,82 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy9E+RMOEj70H9OHhO9HRpWfERNXAyj2M2" crossorigin="anonymous">
-    <title>Dashboard de Precipitaciones</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precipitaciones en México</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    .container-flex {
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    h2 {
+      color: #252525;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    .form-control {
+      border-radius: 5px;
+    }
+
+    button.btn-primary {
+      background-color: #1f1f1f;
+      border: none;
+    }
+
+    button.btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      width: 100%;
+      margin-top: 50px;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        font-size: 1em; /* Adjust the font size as needed */
+        background-color: #33333332; /* Background color for better visibility */
+        border-radius: 100%; /* Make it a circle for a more noticeable appearance */
+        opacity: 0.2; /* Adjust the opacity to your liking */
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        color: white; /* Arrow color */
+    }
+
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        opacity: 1; /* Show full opacity on hover */
+    }
+
+  </style>
 </head>
 <body>
 
-<!-- Main Content Area -->
-<div class="container mt-3 mb-4 ml-4 mr-4">
+  <!-- Navbar -->
 
-    <h1>Precipitaciones en México</h1>
 
-    <!-- Interactive Map -->
-    <div class="row">
-        <div class="col-lg-12">
-            <!-- Add your interactive map here -->
-            <div id="map"></div>
+
+    <div class="container-flex text-center">
+        <h1>Herramienta de exploración de datos de precipitaciones</h1>
+        <h3>México</h2>
+        <!-- <img src="{{ url_for('static', filename = '../../results/Graficos/histograma.png') }}"> -->
+    </div>
+
+    <div class="container">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active text-center">
+            <img src="{{ url_for('static', filename='1985precipitacion.jpg') }}"/>
+          </div>
+          {% for year in range(1986, 2023) %}
+          <div class="carousel-item text-center">
+            <img src="{{ url_for('static', filename='{}precipitacion.jpg'.format(year)) }}" alt="datos de {{year}}"/>
+          </div>
+          {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon black" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon black" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    </div>
+
+    
+   
+  <div class="container"> 
+    <h2 class="text-center">Resuelve tus dudas con ChatGPT</h2>
+    <p class="text-center">Prueba preguntar: ¿Qué pudo haber causado las altas precipitaciones en Jalisco en el año 1989?</p>
+    <div class="row mt-4">
+      <!-- First Column -->
+      <div class="col-md-6">
+        <form id="combinedForm" method="POST" action="/">
+          <div class="form-group">
+            <label for="api_key">API Key:</label>
+            <input type="text" class="form-control" id="api_key" name="api_key" required>
+          </div>
+          <div class="form-group">
+            <label for="query">Consulta:</label>
+            <input type="text" class="form-control" id="query" name="query" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Consultar</button>
+        </form>
+      </div>
+      
+      <!-- Second Column -->
+      <div class="col-md-6">
+        <div class="container mt-4">
+          <p>{{ output | safe}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container text-center mt-3">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#chartContainer" aria-expanded="false" aria-controls="chartContainer">
+        Mostrar visualización: Promedio de precipitación por mes y año
+        </button>
+        <div class="container collapse" id="chartContainer">
+            {% include "chart.html" %}
         </div>
     </div>
 
-    <!-- Charts Section -->
-    <div class="row mt-3">
-        <div class="col-lg-6">
-            <!-- Chart 1 -->
-            <div class="card">
-                <div class="card-header">
-                    Rainfall Chart 1
-                </div>
-                <div class="card-body">
-                    <!-- Add your chart content here -->
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <!-- Chart 2 -->
-            <div class="card">
-                <div class="card-header">
-                    Rainfall Chart 2
-                </div>
-                <div class="card-body">
-                    <!-- Add your chart content here -->
-                </div>
-            </div>
-        </div>
-    </div>
+  <!-- Bootstrap JS and Popper.js CDN -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- ChatGPT Connection Section -->
-    <div class="row mt-3">
-        <div class="col-lg-12">
-            <!-- ChatGPT Connection -->
-            <div class="card">
-                <div class="card-header">
-                    ChatGPT Connection
-                </div>
-                <div class="card-body">
-                    <!-- Add your chat interface/content here -->
-                    <form action="/" method="post">
-                        <div class="form-group">
-                            <label for="userInput">User Input:</label>
-                            <input type="text" class="form-control" id="userInput" name="api_key" placeholder="Type your message...">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send</button>
 
-                        {{ output }}
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="footer">
+    <p>&copy; 2023. Proyecto para la clase "Desarrollo de Proyecto I" de la Maestría en Ciencia de los Datos | <a href="#">Roberto Ramirez</a> | <a href="#">Victor Tellez</a></p>
+  </div>
 
-</div>
-
-<!-- Bootstrap JS and Popper.js -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy9E+RMOEj70H9OHhO9HRpWfERNXAyj2M2" crossorigin="anonymous"></script>
 
 </body>
+
+
 </html>
