@@ -27,7 +27,11 @@ chart = alt.Chart(aux).mark_rect().encode(
     alt.Column("ENTIDAD"),
     tooltip=["AÑO", "MES", "PRECIPITACION"]
 ).properties(
-    title="Precipitación por mes y año en Nuevo León vs Nacional"
+    title="Precipitación por mes y año en Nuevo León vs Nacional",
+    width=200,
+    height=500
 )
+
+#chart.save('templates/chart.html')
 
 chart.save('templates/chart.html')

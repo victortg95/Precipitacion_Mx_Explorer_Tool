@@ -116,14 +116,13 @@
 
 
   <div class="container text-center mt-3">
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#chartContainer" aria-expanded="false" aria-controls="chartContainer">
-      Mostrar visualización: Promedio de precipitación por mes y año
-    </button>
-
-  <div class="container collapse text-center" id="chartContainer">
-    {% include "chart.html" %}
-  </div>
-</div>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#chartContainer" aria-expanded="false" aria-controls="chartContainer">
+        Mostrar visualización: Promedio de precipitación por mes y año
+        </button>
+        <div class="container collapse" id="chartContainer">
+            {% include "chart.html" %}
+        </div>
+    </div>
 
   <!-- Bootstrap JS and Popper.js CDN -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
