@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 from openai import OpenAI
+from graphs import *
 
 app = Flask(__name__)
 
@@ -22,7 +23,7 @@ def hello_world(name='dashboard'):
             model="gpt-3.5-turbo",
         )
         output = chat_completion.choices[0].message.content
-        return render_template('dashboard.html', name=name, output=output)
+        return render_template('dashboard.html', name=name, output=output, chart=chart)
     else:
         return render_template('dashboard.html', name=name)
 

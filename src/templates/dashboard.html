@@ -19,6 +19,12 @@
       margin-top: 50px;
     }
 
+    .container-flex {
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
     h2 {
       color: #252525;
     }
@@ -44,19 +50,45 @@
       font-size: 1.2em;
       color: #555;
     }
+
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      width: 100%;
+      margin-top: 50px;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+
   </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="container-flex text-center">
         <h1>Herramienta de exploración de datos de precipitaciones</h1>
-        <h2>México</h2>
+        <h3>México</h2>
         <!-- <img src="{{ url_for('static', filename = '../../results/Graficos/histograma.png') }}"> -->
     </div>
 
+    <div class="container">
+        <p>Geopandas</p>
+    </div>
+
+    
    
   <div class="container"> 
     <h2 class="text-center">Resuelve tus dudas con ChatGPT</h2>
+    <p class="text-center">Prueba preguntar: ¿Qué pudo haber causado las altas precipitaciones en Jalisco en el año 1989?</p>
     <div class="row mt-4">
       <!-- First Column -->
       <div class="col-md-6">
@@ -82,9 +114,29 @@
     </div>
   </div>
 
+
+  <div class="container text-center mt-3">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#chartContainer" aria-expanded="false" aria-controls="chartContainer">
+      Mostrar visualización: Promedio de precipitación por mes y año
+    </button>
+
+  <div class="container collapse text-center" id="chartContainer">
+    {% include "chart.html" %}
+  </div>
+</div>
+
   <!-- Bootstrap JS and Popper.js CDN -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+  <div class="footer">
+    <p>&copy; 2023. Proyecto para la clase "Desarrollo de Proyecto I" de la Maestría en Ciencia de los Datos | <a href="#">Roberto Ramirez</a> | <a href="#">Victor Tellez</a></p>
+  </div>
+
+
 </body>
+
+
 </html>
