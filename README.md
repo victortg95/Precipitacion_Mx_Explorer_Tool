@@ -56,3 +56,22 @@ Este repositorio contiene una aplicación para visualizar y analizar datos de pr
 ## Licencia
 
 Este proyecto está bajo la Licencia [MIT](LICENSE).
+
+
+## Estructura de repositorio
+
+    ├── LICENSE           <- Licencia MIT.
+    |  
+    ├── README.md         <- Archivo principal README con la descripción del proyecto.
+    |  
+    ├── CONTRIBUTING.md   <- Pasos para contribuir al proyecto.
+    |  
+    ├── CITATION.md       <- Forma de citar el proyecto.
+    |  
+    ├── data              <- Bases de datos originales.
+    |  
+    ├── doc               <- Archivos de texto.
+    |  
+    ├── results           <- Bases de datos limpias y analizadas.
+    |  
+    └── src               <- Archivos de código.
