@@ -50,9 +50,7 @@ Este repositorio contiene una aplicación para visualizar y analizar datos de pr
 
 3. Para realizar consultas con la herramienta de ChatGPT se requiere una **API Key**.
 
-## Contribuciones
 
-¡Contribuciones son bienvenidas! Si tienes sugerencias, problemas o mejoras, por favor crea un "issue" o envía un "pull request".
 
 ## Licencia
 

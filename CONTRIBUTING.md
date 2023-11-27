@@ -1,6 +1,3 @@
-# Contributing
-We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
+## Contribuciones
 
-- Reporting a bug
-- Discussing the current state of the code
-- Submitting a fix
+¡Contribuciones son bienvenidas! Si tienes sugerencias, problemas o mejoras, por favor crea un "issue" o envía un "pull request".
