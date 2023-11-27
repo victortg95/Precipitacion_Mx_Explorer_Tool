@@ -1,21 +1,59 @@
-# Estructura de repositorio
+# Precipitacion_Mx_Explorer_Tool
 
-El objetivo de este repositorio es implementar las buenas prácticas de acuerdo al paper ["Good Enough Practices in Scientific Computing"](https://arxiv.org/abs/1609.00037) por Greg Wilson, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, Tracy K. Teal.
+Bienvenido a la **Herramienta de exploración de Precipitación México (1985-2022)**. Este proyecto proporciona una herramienta para explorar datos de precipitación en México.
 
-La estructura que queremos que tenga este repositorio es la siguiente:
+## Descripción
 
-    ├── LICENSE           <- MIT License.  
-    |  
-    ├── README.md         <- Main Readme file with the description of the project.  
-    |  
-    ├── CONTRIBUTING.md   <- Steps to contribute to the project.  
-    |  
-    ├── CITATION.md       <- Way to cite the project.  
-    |  
-    ├── data              <- Original data bases.  
-    |  
-    ├── doc               <- Archivos de texto.  
-    |  
-    ├── results           <- Clean and analyzes data bases.  
-    |  
-    └── src               <- Coding files. The main app. 
+Este repositorio contiene una aplicación para visualizar y analizar datos de precipitación en distintas regiones de México. La herramienta utiliza datos meteorológicos para generar gráficos interactivos y facilitar la comprensión de los patrones de precipitación a lo largo del tiempo.
+
+## Características
+
+- **Visualización Interactiva:** Explora datos de precipitación a través de gráficos interactivos y mapas.
+- **Filtros Personalizados:** Personaliza la visualización mediante filtros de fecha y ubicación geográfica.
+- **Consulta en ChatGPT:** Consulta en ChatGPT eventos meteorológicos relevantes en la fecha deseada.
+
+## Requisitos
+
+- Python 3.x
+- Bibliotecas Python (se proporciona un archivo `requirements.txt`)
+
+## Instalación
+
+1. Clona este repositorio:
+
+    ```bash
+    git clone https://github.com/victortg95/Precipitacion_Mx_Explorer_Tool.git
+    ```
+
+2. Accede al directorio del proyecto:
+
+    ```bash
+    cd Precipitacion_Mx_Explorer_Tool
+    ```
+
+3. Instala las dependencias:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## Uso
+
+1. Ejecuta la aplicación:
+
+    ```bash
+    cd src/
+    flask --app app run
+    ```
+
+2. Abre tu navegador y accede a [http://127.0.0.1:5000](http://127.0.0.1:5000).
+
+3. Para realizar consultas con la herramienta de ChatGPT se requiere una **API Key**.
+
+## Contribuciones
+
+¡Contribuciones son bienvenidas! Si tienes sugerencias, problemas o mejoras, por favor crea un "issue" o envía un "pull request".
+
+## Licencia
+
+Este proyecto está bajo la Licencia [MIT](LICENSE).
