@@ -8,3 +8,4 @@ Este se puede correr mediante el comando:
 
     flask --app app run
 
+Ten en cuenta que se necesitan las librerias de flask y openai, que se pueden instalar desde requirements.txt
