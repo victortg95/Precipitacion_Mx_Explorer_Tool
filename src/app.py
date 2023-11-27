@@ -1,8 +1,6 @@
 from flask import Flask, request, render_template
 from openai import OpenAI
 #from graphs import * #Este solo se usa una vez para generar los gráficos. 
-import matplotlib.pyplot as plt
-from matplotlib_scalebar.scalebar import ScaleBar
 import os
 
 app = Flask(__name__)
