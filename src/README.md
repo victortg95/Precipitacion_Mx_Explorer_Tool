@@ -1,6 +1,10 @@
-Carpeta con archivos de codigo y templates para cargar la interfaz de la app. 
+## Carpeta de código
 
-En esta, además de contener los archivos de EDA y los jupyter notebooks con las visualizaciones, tiene además el código fuente de la app. Este se puede correr mediante el comando:
+Archivos de código y templates para cargar la interfaz de la app. 
 
-flask --app app run
+En esta carpeta, además de contener los jupyter notebooks de [EDA](src/EDA_precipitacion_Mexico.ipynb) y [visualizaciones](src/Altair_visualization.ipynb), tiene además el código fuente de la app.
+
+Este se puede correr mediante el comando:
+
+    flask --app app run
 
