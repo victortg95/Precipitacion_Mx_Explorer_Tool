@@ -1,6 +1,6 @@
 # Precipitacion_Mx_Explorer_Tool
 
-Bienvenido al repositorio del "Precipitacion_Mx_Explorer_Tool". Este proyecto proporciona una herramienta para explorar datos de precipitación en México.
+Bienvenido a la **Herramienta de exploración de Precipitación México (1985-2022)**. Este proyecto proporciona una herramienta para explorar datos de precipitación en México.
 
 ## Descripción
 
