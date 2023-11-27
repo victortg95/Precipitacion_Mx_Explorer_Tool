@@ -1,5 +1,9 @@
-# Citation
+# Cómo citar este proyecto
 
-Please cite this work as:
+Si utilizas este código en tu investigación o proyecto, agradecemos que cites la contribución de los estudiantes de MCD de la Universidad de Guadalajara, [Roberto Ramirez](https://github.com/robrmz) y [Víctor Téllez](https://github.com/victortg95).
 
-Victor Tellez. 2023. "Repo Structure". https://github.com/victortg95/Repo_structure/
+## Cita sugerida
+
+Para citar este proyecto, puedes utilizar la siguiente referencia:
+
+Ramirez, R., & Téllez, V. (2023). **Herramienta de exploración de Precipitación México (1985-2022)**. https://github.com/victortg95/Precipitacion_Mx_Explorer_Tool.git
