@@ -82,19 +82,17 @@
     <div class="container">
       <h4>Mapa de precipitación media por estado (1985 - 2022) </h4>
       <p>Selecciona un año para consulta: </p>
-      <div class="container text-center">
-
       <select id="yearSelector" onchange="changeImage()">
         
-          {% for year in range(1985, 2023) %}
-              <option value="{{ year }}">{{ year }}</option>
-          {% endfor %}
-      </select>
-  
+        {% for year in range(1985, 2023) %}
+            <option value="{{ year }}">{{ year }}</option>
+        {% endfor %}
+    </select>
+      <div class="container text-center">
       <img id="selectedImage" src="" alt="Selected Image">
-      <img id="selectedImage_altair" src="" alt="Selected Image Altair">
+      <img id="selectedImage_altair" src="" alt="Selected Image Altair" width="848" height="422">
       </div>
-      <p>Visualizacion: Geopandas</p>
+      <p>Visualización: Geopandas (arriba) Altair (abajo)</p>
     </div>
 
   <div class="container mt-3">
