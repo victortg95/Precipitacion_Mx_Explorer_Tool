@@ -5,9 +5,7 @@ Bienvenido a la **Herramienta de exploración de Precipitación México (1985-20
 ## Descripción
 
 Este repositorio contiene una aplicación para visualizar y analizar datos de precipitación en distintas regiones de México. La herramienta utiliza datos meteorológicos para generar gráficos interactivos y facilitar la comprensión de los patrones de precipitación a lo largo del tiempo.
-
-
-![]([https://media.giphy.com/media/ZFhhpKngh5QfcmhIDF/giphy.gif](https://media.giphy.com/media/ZFhhpKngh5QfcmhIDF/giphy.gif](https://github.com/victortg95/Precipitacion_Mx_Explorer_Tool/blob/master/src/static/working.gif))
+![W](https://github.com/victortg95/Precipitacion_Mx_Explorer_Tool/blob/master/src/static/working.gif)
 
 ## Características
 
