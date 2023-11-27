@@ -92,6 +92,7 @@
       </select>
   
       <img id="selectedImage" src="" alt="Selected Image">
+      <img id="selectedImage_altair" src="" alt="Selected Image Altair">
       </div>
       <p>Visualizacion: Geopandas</p>
     </div>
@@ -148,9 +149,10 @@
 
         // Create the image file name using the selected year
         var imageName = "static/" + selectedYear + "precipitacion.png";
-
+        var imageName_alt = "static/" + selectedYear + "precipitacion_altair.png";
         // Set the source of the image element to the new image file
         document.getElementById("selectedImage").src = imageName;
+        document.getElementById("selectedImage_altair").src = imageName_alt;
     }
   </script>
 

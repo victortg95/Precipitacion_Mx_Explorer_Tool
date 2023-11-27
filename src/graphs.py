@@ -79,3 +79,22 @@ def plot_precipitation_for_year(year, gdf):
 #for i in range(1985,2023):
 #    plot_precipitation_for_year(i,result_gdf)
     
+#Esta es para guardar las imagenes de altair para cada año
+def bar_chart(year,df):
+    chart = alt.Chart(df).mark_bar().encode(
+        x=alt.X('ENTIDAD', axis=alt.Axis(title=None)),
+        y=alt.Y(f'{year}', axis=alt.Axis(title=None)),
+        color=alt.Color(f'{year}:Q', scale=alt.Scale(scheme='viridis')),
+        tooltip=[f'{year}',"ENTIDAD"]
+    ).properties(
+        width=800,
+        height=300,
+        title=f'Precipitación media [mm] en {year} por Estado'
+    )
+
+    chart.save("static/" + str(year) + "precipitacion_altair.png")
+    
+    return chart
+
+for i in range(1985,2023):
+    bar_chart(i,df)
